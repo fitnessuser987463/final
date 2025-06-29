@@ -630,7 +630,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Camera, Clock, Users, Trophy, Upload, CheckCircle, AlertCircle, Award, Target, RefreshCw, History, Calendar } from 'lucide-react';
+import { Camera, Clock, Users, Trophy, Upload, CheckCircle, AlertCircle, Award, Target, RefreshCw, History, Calendar, Zap } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { useSocket } from '../../context/SocketContext';
 import api from '../../services/api';
