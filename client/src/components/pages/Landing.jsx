@@ -203,30 +203,37 @@ const Landing = () => {
 
       {/* Footer */}
       <footer className="bg-gray-950 py-8 border-t border-white/10">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
-          <p className="mb-4 md:mb-0">
-            © 2025 Fit Rank. All rights reserved.
-          </p>
-          <div className="flex items-center gap-x-6">
-            <a
-              href="https://fitranktermsprivacy.wixsite.com/fitranktermsprivacy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              Terms of Service
-            </a>
-            <a
-              href="https://fitranktermsprivacy.wixsite.com/fitranktermsprivacy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              Privacy Policy
-            </a>
-          </div>
-        </div>
-      </footer>
+  <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
+    <p className="mb-4 md:mb-0">
+      © 2025 Fit Rank. All rights reserved.
+    </p>
+    <div className="flex items-center gap-x-6">
+      <a
+        href="mailto:fitrankhelp@gmail.com"
+        className="hover:text-white transition-colors"
+      >
+        Contact Us: fitrankhelp@gmail.com
+      </a>
+      <a
+        href="https://fitranktermsprivacy.wixsite.com/fitranktermsprivacy"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-white transition-colors"
+      >
+        Terms of Service
+      </a>
+      <a
+        href="https://fitranktermsprivacy.wixsite.com/fitranktermsprivacy"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-white transition-colors"
+      >
+        Privacy Policy
+      </a>
+    </div>
+  </div>
+</footer>
+
     </div>
   );
 };
