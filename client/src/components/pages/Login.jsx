@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Camera, Mail, Lock, Eye, EyeOff, ArrowRight } from 'lucide-react';
+import { Mail, Lock, Eye, EyeOff, ArrowRight } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
-import CustomGoogleButton from '../auth/CustomGoogleButton';
 import toast from 'react-hot-toast';
 
 const Login = () => {
@@ -31,7 +30,6 @@ const Login = () => {
   };
 
   const handleEmailAuth = async () => {
-    // Basic validation
     if (!formData.email || !formData.password) {
       toast.error('Please fill in all fields');
       return;
@@ -50,13 +48,12 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      // Create user data for email auth
       const userData = {
         email: formData.email,
         password: formData.password,
-        name: formData.email.split('@')[0], // Use email prefix as name
-        isSignup: !isLogin, // true for signup, false for login
-        isEmailAuth: true // Flag to indicate email authentication
+        name: formData.email.split('@')[0],
+        isSignup: !isLogin,
+        isEmailAuth: true
       };
 
       const result = await login(userData);
@@ -83,7 +80,6 @@ const Login = () => {
       </div>
 
       <div className="relative z-10 w-full max-w-md">
-        {/* Logo and Title */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center space-x-3 mb-6">
             <span className="text-3xl font-bold text-white">Fit Rank</span>
@@ -94,14 +90,13 @@ const Login = () => {
           <p className="text-gray-300">
             {isLogin 
               ? 'Sign in to continue your journey' 
-              : 'Create an account to start competing'
-            }
+              : 'Create an account to start competing'}
           </p>
         </div>
 
-        {/* Login Form */}
+        {/* Email Form */}
         <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl p-8 border border-white/20">
-          {/* Toggle Login/Signup */}
+          {/* Toggle */}
           <div className="flex bg-white/10 rounded-lg p-1 mb-6">
             <button
               onClick={() => setIsLogin(true)}
@@ -125,26 +120,9 @@ const Login = () => {
             </button>
           </div>
 
-          {/* Google Login Button */}
-          <CustomGoogleButton 
-            buttonText={isLogin ? "Continue with Google" : "Sign up with Google"}
-            isLoading={isLoading}
-            setIsLoading={setIsLoading}
-          />
-
-          {/* Divider */}
-          <div className="relative mb-6">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-white/20"></div>
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-transparent text-gray-400">or continue with email</span>
-            </div>
-          </div>
-
-          {/* Email Form */}
+          {/* Email Login */}
           <div className="space-y-4">
-            {/* Email Input */}
+            {/* Email */}
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
                 Email Address
@@ -156,14 +134,14 @@ const Login = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full pl-10 pr-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                   placeholder="Enter your email"
                   required
                 />
               </div>
             </div>
 
-            {/* Password Input */}
+            {/* Password */}
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
                 Password
@@ -175,14 +153,14 @@ const Login = () => {
                   name="password"
                   value={formData.password}
                   onChange={handleInputChange}
-                  className="w-full pl-10 pr-12 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                  className="w-full pl-10 pr-12 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                   placeholder="Enter your password"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
@@ -202,19 +180,19 @@ const Login = () => {
                     name="confirmPassword"
                     value={formData.confirmPassword}
                     onChange={handleInputChange}
-                    className="w-full pl-10 pr-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    className="w-full pl-10 pr-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                     placeholder="Confirm your password"
                     required
                   />
                 </div>
               </div>
             )}
-            
+
             {/* Submit Button */}
             <button
               onClick={handleEmailAuth}
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-red-600 to-yellow-500 text-white py-4 px-6 rounded-xl font-semibold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+              className="w-full bg-gradient-to-r from-red-600 to-yellow-500 text-white py-4 px-6 rounded-xl font-semibold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50"
             >
               {isLoading ? (
                 <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -227,7 +205,7 @@ const Login = () => {
             </button>
           </div>
 
-          {/* ===== THIS IS THE UPDATED SECTION ===== */}
+          {/* Terms & Policy */}
           {!isLogin && (
             <p className="text-xs text-gray-400 mt-4 text-center">
               By creating an account, you agree to our{' '}
@@ -238,8 +216,8 @@ const Login = () => {
                 className="text-white underline hover:no-underline"
               >
                 Terms of Service
-              </a>
-              {' '}and{' '}
+              </a>{' '}
+              and{' '}
               <a
                 href="https://fitranktermsprivacy.wixsite.com/fitranktermsprivacy"
                 target="_blank"
@@ -252,7 +230,7 @@ const Login = () => {
           )}
         </div>
 
-        {/* Back to Landing */}
+        {/* Back to Home */}
         <div className="text-center mt-6">
           <button 
             onClick={() => navigate('/')}
