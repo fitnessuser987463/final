@@ -42,8 +42,8 @@ const Landing = () => {
               Compete daily in fitness challenges to build consistency. 
               A new challenge drops every day at 8 AM EST
             </p>
-            
-            {/* Social Proof Stats - NEW SECTION */}
+
+            {/* Social Proof Stats */}
             <div className="flex justify-center items-center gap-12 my-12">
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-green-500/10 rounded-full border border-green-500/20">
@@ -56,7 +56,7 @@ const Landing = () => {
               </div>
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-red-500/10 rounded-full border border-red-500/20">
-                   <Camera className="w-8 h-8 text-red-400" />
+                  <Camera className="w-8 h-8 text-red-400" />
                 </div>
                 <div>
                   <p className="text-3xl font-bold">5K+</p>
@@ -64,7 +64,6 @@ const Landing = () => {
                 </div>
               </div>
             </div>
-
 
             <button
               onClick={() => window.location.href = '/login'}
@@ -75,6 +74,39 @@ const Landing = () => {
           </div>
         </div>
       </div>
+
+      {/* Get the App Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-950 to-black text-white">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
+          {/* Left Content */}
+          <div className="md:w-1/2 text-center md:text-left">
+            <h2 className="text-4xl font-bold mb-4">How to Get the App</h2>
+            <p className="text-lg text-gray-300 mb-6">
+              We are releasing the app soon on ios and android! In the meantime, follow the steps below or watch our video to add Fit Rank to your homescreen!
+            </p>
+            <ul className="text-gray-400 list-disc list-inside space-y-2 text-left">
+              <li>Open Fit Rank in your mobile browser</li>
+              <li>Tap the share icon or browser menu</li>
+              <li>Select “Add to Home Screen”</li>
+              <li>Launch the app like any native app!</li>
+            </ul>
+          </div>
+
+          {/* Right Content - Responsive YouTube Embed */}
+          <div className="md:w-1/2 w-full">
+            <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
+              <iframe
+                className="absolute top-0 left-0 w-full h-full rounded-xl shadow-lg border border-white/10"
+                src="https://www.youtube.com/embed/C0DPdy98e4c"
+                title="How to Get the Fit Rank App"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Why Join Section */}
       <section className="bg-white/5 backdrop-blur-sm py-20">
@@ -87,7 +119,6 @@ const Landing = () => {
           </p>
 
           <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-            {/* Feature 1 */}
             <div className="bg-white/10 p-8 rounded-2xl border border-white/10 hover:scale-105 transition">
               <div className="mb-4">
                 <Zap className="w-10 h-10 text-yellow-400 mx-auto" />
@@ -97,8 +128,6 @@ const Landing = () => {
                 Each day unlocks a new challenge designed to push your limits. Perform or fall behind.
               </p>
             </div>
-
-            {/* Feature 2 */}
             <div className="bg-white/10 p-8 rounded-2xl border border-white/10 hover:scale-105 transition">
               <div className="mb-4">
                 <Trophy className="w-10 h-10 text-red-400 mx-auto" />
@@ -108,8 +137,6 @@ const Landing = () => {
                 Every rep counts. Points fuel your rank. Consistency wins the crown.
               </p>
             </div>
-
-            {/* Feature 3 */}
             <div className="bg-white/10 p-8 rounded-2xl border border-white/10 hover:scale-105 transition">
               <div className="mb-4">
                 <Users className="w-10 h-10 text-green-400 mx-auto" />
@@ -128,7 +155,6 @@ const Landing = () => {
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold mb-10">How It Works</h2>
           <div className="grid md:grid-cols-4 gap-10 max-w-5xl mx-auto">
-            {/* Step 1 */}
             <div>
               <div className="w-16 h-16 bg-red-500/20 rounded-full mx-auto flex items-center justify-center mb-4">
                 <span className="text-2xl font-bold text-white">1</span>
@@ -136,8 +162,6 @@ const Landing = () => {
               <h4 className="text-xl font-semibold mb-2">Join the Series</h4>
               <p className="text-gray-400">Sign up and prepare for 7 days of relentless challenge.</p>
             </div>
-
-            {/* Step 2 */}
             <div>
               <div className="w-16 h-16 bg-yellow-400/20 rounded-full mx-auto flex items-center justify-center mb-4">
                 <Camera className="w-6 h-6 text-white" />
@@ -145,8 +169,6 @@ const Landing = () => {
               <h4 className="text-xl font-semibold mb-2">Show Your Proof</h4>
               <p className="text-gray-400">Submit video or photo evidence to validate your efforts.</p>
             </div>
-
-            {/* Step 3 */}
             <div>
               <div className="w-16 h-16 bg-green-400/20 rounded-full mx-auto flex items-center justify-center mb-4">
                 <Star className="w-6 h-6 text-white" />
@@ -154,8 +176,6 @@ const Landing = () => {
               <h4 className="text-xl font-semibold mb-2">Earn Points</h4>
               <p className="text-gray-400">Get scored based on effort, accuracy, and consistency.</p>
             </div>
-
-            {/* Step 4 */}
             <div>
               <div className="w-16 h-16 bg-blue-500/20 rounded-full mx-auto flex items-center justify-center mb-4">
                 <Trophy className="w-6 h-6 text-white" />
