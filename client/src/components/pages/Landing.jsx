@@ -97,7 +97,7 @@ const Landing = () => {
             <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
               <iframe
                 className="absolute top-0 left-0 w-full h-full rounded-xl shadow-lg border border-white/10"
-                src="https://www.youtube.com/embed/C0DPdy98e4c"
+                src="https://youtube.com/shorts/fBJEqtEYm_U"
                 title="How to Get the Fit Rank App"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
