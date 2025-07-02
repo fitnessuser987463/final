@@ -513,8 +513,9 @@ const Submission = () => {
   };
 
   const handleFileSelect = (file) => {
-    if (!['image/png', 'video/mp4'].includes(file.type)) {
-      toast.error('Please select a PNG image or MP4 video file.');
+    const allowedTypes = ['image/png', 'video/mp4', 'video/quicktime'];
+    if (!allowedTypes.includes(file.type)) {
+      toast.error('Please select a PNG image, MP4 or MOV video file.');
       return;
     }
     if (file.size > 100 * 1024 * 1024) {
@@ -556,7 +557,7 @@ const Submission = () => {
     } catch (error) {
       setIsUploading(false);
       setUploadProgress(0);
-      toast.error(error.response?.data?.message || 'Upload failed. Please try again.');
+      toast.error(error.response?.data?.message || 'Please wait, then submit again');
     }
   };
 
@@ -627,7 +628,7 @@ const Submission = () => {
       </div>
     );
   }
-  
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-950 text-white">
       <Header />
@@ -654,13 +655,24 @@ const Submission = () => {
                   }`}
                   onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}
                 >
-                  <input ref={fileInputRef} type="file" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" accept=".png,.mp4" onChange={handleFileInputChange} disabled={isUploading} />
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                    accept=".png,.mp4,.mov"
+                    onChange={handleFileInputChange}
+                    disabled={isUploading}
+                  />
                   {!selectedFile ? (
                     <div>
                       <Upload className="w-12 h-12 text-gray-500 mx-auto mb-4" />
                       <h3 className="text-lg font-semibold text-gray-300 mb-2">Drop your file here or click to browse</h3>
-                      <p className="text-gray-500 mb-4">PNG images or MP4 videos only, max 100MB</p>
-                      <button type="button" className="bg-amber-500 text-black px-6 py-3 rounded-lg font-bold hover:bg-amber-600 transition-colors" onClick={() => fileInputRef.current?.click()}>
+                      <p className="text-gray-500 mb-4">PNG images or MP4/MOV videos only, max 100MB</p>
+                      <button
+                        type="button"
+                        className="bg-amber-500 text-black px-6 py-3 rounded-lg font-bold hover:bg-amber-600 transition-colors"
+                        onClick={() => fileInputRef.current?.click()}
+                      >
                         Choose File
                       </button>
                     </div>
