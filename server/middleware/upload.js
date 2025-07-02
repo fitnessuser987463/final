@@ -6,11 +6,11 @@ const storage = multer.memoryStorage();
 
 const fileFilter = (req, file, cb) => {
   // Check file type
-  const allowedTypes = ['image/png', 'video/mp4'];
+  const allowedTypes = ['image/png', 'video/mp4', 'video/quicktime']; // Added .mov support
   if (allowedTypes.includes(file.mimetype)) {
     cb(null, true);
   } else {
-    cb(new Error('Only PNG images and MP4 videos are allowed'), false);
+    cb(new Error('Only PNG images, MP4 videos, and MOV videos are allowed'), false);
   }
 };
 
