@@ -14,12 +14,12 @@ const SubmissionPage = () => {
     timeRemaining: "21h 45m",
     rules: [
       "Must be original content taken today",
-      "Submit as PNG or MP4 only",
+      "Submit as PNG, MP4, or MOV only",
       "No filters or heavy editing",
       "Faster submissions earn more points"
     ],
     maxFileSize: "100MB",
-    acceptedFormats: ["PNG", "MP4"]
+    acceptedFormats: ["PNG", "MP4", "MOV"]
   };
 
   const handleDrag = (e) => {
@@ -36,21 +36,18 @@ const SubmissionPage = () => {
     e.preventDefault();
     e.stopPropagation();
     setDragActive(false);
-    
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       handleFileSelect(e.dataTransfer.files[0]);
     }
   };
 
   const handleFileSelect = (file) => {
-    // Validate file type
-    const validTypes = ['image/png', 'video/mp4'];
+    const validTypes = ['image/png', 'video/mp4', 'video/quicktime'];
     if (!validTypes.includes(file.type)) {
-      alert('Please select a PNG image or MP4 video file.');
+      alert('Please select a PNG image, MP4, or MOV video file.');
       return;
     }
 
-    // Validate file size (100MB)
     if (file.size > 100 * 1024 * 1024) {
       alert('File size must be less than 100MB.');
       return;
@@ -211,7 +208,7 @@ const SubmissionPage = () => {
                     ref={fileInputRef}
                     type="file"
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                    accept=".png,.mp4"
+                    accept=".png,.mp4,.mov"
                     onChange={handleFileInputChange}
                     disabled={isUploading}
                   />
@@ -222,7 +219,7 @@ const SubmissionPage = () => {
                       <h3 className="text-lg font-semibold text-gray-700 mb-2">
                         Drop your file here or click to browse
                       </h3>
-                      <p className="text-gray-500 mb-4">PNG images or MP4 videos only</p>
+                      <p className="text-gray-500 mb-4">PNG images, MP4 or MOV videos only</p>
                       <button 
                         type="button"
                         className="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors"
